@@ -16,9 +16,10 @@
   "scripts": {
     "build": "babel src --out-dir lib",
     "lint": "eslint --ignore-path .gitignore --ext js,jsx .",
-    "prepublish": "npm run build",
+    "prepublish": "npm run snyk-protect && npm run build",
     "test": "jest",
-    "posttest": "npm run lint"
+    "posttest": "npm run lint",
+    "snyk-protect": "snyk protect"
   },
   "jest": {
     "preset": "amex-jest-preset-react",
@@ -31,7 +32,8 @@
     "hoist-non-react-statics": "^1.2.0",
     "lodash": "^4.17.4",
     "prop-types": "^15.5.10",
-    "shallowequal": "^1.0.1"
+    "shallowequal": "^1.0.1",
+    "snyk": "^1.316.1"
   },
   "devDependencies": {
     "@babel/cli": "^7.2.3",
@@ -53,5 +55,6 @@
   },
   "peerDependencies": {
     "react": "^16.0.0"
-  }
+  },
+  "snyk": true
 }
